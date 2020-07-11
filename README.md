@@ -42,3 +42,7 @@ update database you need to specify the context when you have multiple dbcontext
  IOC
  Add nuget package for IOC Dependency injection 
  Microsoft.Extensions.DependencyInjection
+
+
+ CleanArch.Infra.Bus
+ Add Nuget MediatR
