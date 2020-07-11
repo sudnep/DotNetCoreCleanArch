@@ -34,3 +34,11 @@ update database you need to specify the context when you have multiple dbcontext
  update-database -Context UniversityDBContext
 
  Core/Application Project: Services, View Model
+ ViewModels: Hide the data layer
+ Interfaces
+ Services
+
+
+ IOC
+ Add nuget package for IOC Dependency injection 
+ Microsoft.Extensions.DependencyInjection
