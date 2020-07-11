@@ -12,6 +12,7 @@ using CleanArch.Mvc.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using CleanArch.Infra.Data.Context;
 
 namespace CleanArch.Mvc
 {
@@ -27,9 +28,13 @@ namespace CleanArch.Mvc
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+           
+            services.AddDbContext<UniversityDBContext>(options =>
+           options.UseSqlServer(
+               Configuration.GetConnectionString("UniversityDBConnection")));
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("IdentityDBConnection")));
+               options.UseSqlServer(
+                   Configuration.GetConnectionString("IdentityDBConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
